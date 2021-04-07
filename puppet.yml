@@ -1,0 +1,14 @@
+---
+- name: "Enable and run Puppet agent"
+  hosts: dev
+  become: true
+  tasks:
+    - name: Enable puppet
+      ansible.builtin.shell:
+        cmd: /opt/puppetlabs/puppet/bin/puppet agent --enable
+    - name: Run puppet
+      ansible.builtin.shell:
+        cmd: /opt/puppetlabs/puppet/bin/puppet agent -t
+    - name: Run puppet again
+      ansible.builtin.shell:
+        cmd: /opt/puppetlabs/puppet/bin/puppet agent -t
