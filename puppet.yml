@@ -4,17 +4,17 @@
   
   tasks:
     - name: Enable puppet
-      command: /opt/puppetlabs/puppet/bin/puppet agent --enable
+      shell: puppet agent --enable
       become: true
       become_user: root
       become_method: sudo
     - name: Run puppet
-      command: /opt/puppetlabs/puppet/bin/puppet agent -t
+      shell: puppet agent -t
       become: true
       become_user: root
       become_method: sudo
     - name: Run puppet again
-      command: /opt/puppetlabs/puppet/bin/puppet agent -t
+      shell: puppet agent -t
       become: true
       become_user: root
       become_method: sudo
