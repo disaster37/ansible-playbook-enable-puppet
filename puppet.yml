@@ -2,17 +2,12 @@
 - name: "Enable and run Puppet agent"
   hosts: dev
   become: true
+  become_user: root
   become_method: sudo
   tasks:
     - name: Enable puppet
-      command: /usr/bin/sudo /opt/puppetlabs/puppet/bin/puppet agent --enable
-      become: true
-      become_method: sudo
+      command: /opt/puppetlabs/puppet/bin/puppet agent --enable
     - name: Run puppet
-      command: /usr/bin/sudo /opt/puppetlabs/puppet/bin/puppet agent -t
-      become: true
-      become_method: sudo
+      command: /opt/puppetlabs/puppet/bin/puppet agent -t
     - name: Run puppet again
-      command: /usr/bin/sudo /opt/puppetlabs/puppet/bin/puppet agent -t
-      become: true
-      become_method: sudo
+      command: /opt/puppetlabs/puppet/bin/puppet agent -t
