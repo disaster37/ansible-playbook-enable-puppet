@@ -5,7 +5,10 @@
   tasks:
     - name: Enable puppet
       shell: /opt/puppetlabs/puppet/bin/puppet agent --enable
+      become: true
     - name: Run puppet
       shell: /opt/puppetlabs/puppet/bin/puppet agent -t
+      become: true
     - name: Run puppet again
       shell: /opt/puppetlabs/puppet/bin/puppet agent -t
+      become: true
